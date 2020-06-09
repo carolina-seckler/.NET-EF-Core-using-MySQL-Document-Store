@@ -385,6 +385,36 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/publisher/city",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"city\": \"São Paulo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LibraryApi}}/publisher/city",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"publisher",
+								"city"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
