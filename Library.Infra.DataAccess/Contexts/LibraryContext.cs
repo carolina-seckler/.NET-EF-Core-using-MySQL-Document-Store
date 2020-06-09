@@ -10,27 +10,73 @@ namespace Library.Infra.DataAccess.Contexts
     {
         public DbSet<Book> Book { get; set; }
         public DbSet<Publisher> Publisher { get; set; }
+        public DbSet<Volume> Volume { get; set; }
+
+        public LibraryContext(DbContextOptions<LibraryContext> options)
+            :base(options)
+        {
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseMySQL("server=localhost;database=library;user=root;password=root");
+            //optionsBuilder.UseMySQL("server=18.229.29.219;port=3306;database=Library;user=libraryuser;password=G6Wu^X+T");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Publisher>(entity =>
-            {
-                entity.HasKey(e => e.ID);
-                entity.Property(e => e.Name).IsRequired();
-            });
             modelBuilder.Entity<Book>(entity =>
             {
-                entity.HasKey(e => e.ID);
-                entity.Property(e => e.Info).HasColumnType("json");
-                entity.HasOne(d => d.Publisher)
-                  .WithMany(p => p.Books);
+                entity.HasIndex(e => e.IdPublisher)
+                    .HasName("idpublisher");
+
+                entity.Property(e => e.Author)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ISBN)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Language)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.IdPublisherNavigation)
+                    .WithMany(p => p.Books)
+                    .HasForeignKey(d => d.IdPublisher)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("book_ibfk_1");
+            });
+
+            modelBuilder.Entity<Publisher>(entity =>
+            {
+                entity.Property(e => e.Address).HasColumnType("json");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Volume>(entity =>
+            {
+                entity.HasIndex(e => e.IdBook)
+                    .HasName("idbook");
+
+                entity.Property(e => e.Title)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.IdBookNavigation)
+                    .WithMany(p => p.Volumes)
+                    .HasForeignKey(d => d.IdBook)
+                    .HasConstraintName("volume_ibfk_1")
+                    .OnDelete(DeleteBehavior.ClientCascade);
             });
         }
     }

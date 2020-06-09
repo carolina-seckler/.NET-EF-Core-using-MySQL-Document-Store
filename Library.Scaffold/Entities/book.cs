@@ -5,10 +5,18 @@ namespace Library.Scaffold.Entities
 {
     public partial class book
     {
-        public int id { get; set; }
-        public string info { get; set; }
-        public int publisherid { get; set; }
+        public book()
+        {
+            volume = new HashSet<volume>();
+        }
 
-        public virtual publisher publisher { get; set; }
+        public int id { get; set; }
+        public string isbn { get; set; }
+        public string author { get; set; }
+        public string language { get; set; }
+        public int idpublisher { get; set; }
+
+        public virtual publisher idpublisherNavigation { get; set; }
+        public virtual ICollection<volume> volume { get; set; }
     }
 }

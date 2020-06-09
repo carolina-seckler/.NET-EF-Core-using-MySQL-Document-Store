@@ -1,0 +1,586 @@
+{
+	"info": {
+		"_postman_id": "b52c7470-eafb-4dd4-9344-2bf7616b85f1",
+		"name": "Library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "{{LibraryApi}}/book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"isbn\": \"978-8578279585\",\n\t\"author\": \"Andrezej Sapkowski\",\n\t\"language\": 1,\n\t\"idpublisher\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LibraryApi}}/book",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/book",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LibraryApi}}/book",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/book/1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"isbn\": \"978-8578279585\",\n\t\"author\": \"Andrzej Sapkowski\",\n\t\"language\": 1,\n\t\"idpublisher\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LibraryApi}}/book/1",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"book",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/book/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LibraryApi}}/book/1",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"book",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"isbn\": \"\",\n\t\"author\": \"\",\n\t\"language\": 0,\n\t\"idpublisher\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LibraryApi}}/book",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/book/2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{LibraryApi}}/book/2",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"book",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"isbn\": \"978-4893587817\",\n\t\"author\": \"Kazumi Hatasa\",\n\t\"language\": 2,\n\t\"idpublisher\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LibraryApi}}/book",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"book"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Publisher",
+			"item": [
+				{
+					"name": "{{LibraryApi}}/publisher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Martins Fontes\",\n    \"address\": \"{\\\"street\\\": \\\"Av. Paulista\\\",\\\"number\\\": 509,\\\"phone\\\": \\\"11 2167.9900\\\",\\\"zipCode\\\": \\\"01311.910\\\",\\\"city\\\": \\\"São Paulo\\\",\\\"state\\\": \\\"SP\\\"}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LibraryApi}}/publisher",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"publisher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/publisher",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LibraryApi}}/publisher",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"publisher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/publisher/1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Martins Fontes\",\n    \"address\": \"{\\\"street\\\": \\\"Av. Paulista\\\",\\\"number\\\": 509,\\\"phone\\\": \\\"01121679900\\\",\\\"zipCode\\\": \\\"01311.910\\\",\\\"city\\\": \\\"São Paulo\\\",\\\"state\\\": \\\"SP\\\"}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LibraryApi}}/publisher/1",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"publisher",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/publisher/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LibraryApi}}/publisher/1",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"publisher",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/publisher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ediouro\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LibraryApi}}/publisher",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"publisher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/publisher/2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{LibraryApi}}/publisher/2",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"publisher",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/publisher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Bonjinsha\",\n    \"address\": \"{\\\"street\\\": \\\"8F Hulic\\\",\\\"number\\\": \\\"1-3-13 Hirakawacho\\\",\\\"building\\\": \\\"Hirakawacho Building\\\",\\\"zipCode\\\": \\\"102-0093\\\", \\\"province\\\": \\\"Chiyoda-ku\\\" ,\\\"city\\\": \\\"Tokyo\\\"}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LibraryApi}}/publisher",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"publisher"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Volume",
+			"item": [
+				{
+					"name": "{{LibraryApi}}/volume",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"O último desejo\",\n\t\"number\": 1,\n\t\"pages\": 320,\n\t\"idbook\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LibraryApi}}/volume",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"volume"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/volume",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LibraryApi}}/volume",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"volume"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/volume/1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"O Último Desejo\",\n\t\"number\": 1,\n\t\"pages\": 320,\n\t\"idbook\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LibraryApi}}/volume/1",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"volume",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/volume/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LibraryApi}}/volume/1",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"volume",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/volume",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"\",\n\t\"number\": 0,\n\t\"pages\": 0,\n\t\"idbook\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LibraryApi}}/volume",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"volume"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/volume/2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{LibraryApi}}/volume/2",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"volume",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{LibraryApi}}/volume",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"A Espada do Destino\",\n\t\"number\": 2,\n\t\"pages\": 380,\n\t\"idbook\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LibraryApi}}/volume",
+							"host": [
+								"{{LibraryApi}}"
+							],
+							"path": [
+								"volume"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

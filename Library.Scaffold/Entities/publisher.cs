@@ -12,6 +12,7 @@ namespace Library.Scaffold.Entities
 
         public int id { get; set; }
         public string name { get; set; }
+        public string address { get; set; }
 
         public virtual ICollection<book> book { get; set; }
     }

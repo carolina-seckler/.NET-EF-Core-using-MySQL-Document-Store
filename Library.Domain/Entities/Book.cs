@@ -1,4 +1,5 @@
 ﻿using Innofactor.EfCoreJsonValueConverter;
+using Library.Domain.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MySql.Data.EntityFrameworkCore.DataAnnotations;
@@ -11,11 +12,19 @@ using System.Text;
 namespace Library.Domain.Entities
 {
     [MySqlCollation("latin1_spanish_ci")]
-    public class Book
+    public class Book : TEntity<int>
     {
+        public Book()
+        {
+            Volumes = new HashSet<Volume>();
+        }
+
         [MySqlCharset("latin1")]
-        public int ID { get; set; }
-        public string Info { get; set; }
-        public virtual Publisher Publisher { get; set; }
+        public string ISBN { get; set; }
+        public string Author { get; set; }
+        public Language Language { get; set; }
+        public int IdPublisher { get; set; }
+        public virtual Publisher IdPublisherNavigation { get; set; }
+        public virtual ICollection<Volume> Volumes { get; set; }
     }
 }

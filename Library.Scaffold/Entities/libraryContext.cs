@@ -17,6 +17,7 @@ namespace Library.Scaffold.Entities
 
         public virtual DbSet<book> book { get; set; }
         public virtual DbSet<publisher> publisher { get; set; }
+        public virtual DbSet<volume> volume { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -31,24 +32,55 @@ namespace Library.Scaffold.Entities
         {
             modelBuilder.Entity<book>(entity =>
             {
-                entity.HasIndex(e => e.publisherid)
-                    .HasName("publisherid");
+                entity.HasIndex(e => e.idpublisher)
+                    .HasName("idpublisher");
 
-                entity.Property(e => e.info).HasColumnType("json");
+                entity.Property(e => e.author)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
-                entity.HasOne(d => d.publisher)
+                entity.Property(e => e.isbn)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.language)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.idpublisherNavigation)
                     .WithMany(p => p.book)
-                    .HasForeignKey(d => d.publisherid)
+                    .HasForeignKey(d => d.idpublisher)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("book_ibfk_1");
             });
 
             modelBuilder.Entity<publisher>(entity =>
             {
+                entity.Property(e => e.address).HasColumnType("json");
+
                 entity.Property(e => e.name)
                     .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<volume>(entity =>
+            {
+                entity.HasIndex(e => e.idbook)
+                    .HasName("idbook");
+
+                entity.Property(e => e.title)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.idbookNavigation)
+                    .WithMany(p => p.volume)
+                    .HasForeignKey(d => d.idbook)
+                    .HasConstraintName("volume_ibfk_1");
             });
 
             OnModelCreatingPartial(modelBuilder);
