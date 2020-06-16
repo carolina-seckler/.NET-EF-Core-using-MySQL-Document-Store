@@ -1,3 +1,4 @@
+/*V2*/
 drop database Library;
 create database Library;
 use Library;
@@ -20,3 +21,4 @@ Primary Key(Id),
 FOREIGN KEY (Idbook) REFERENCES Book(Id) 
 ON DELETE CASCADE) 
 Engine=InnoDB Default Charset Latin1;
+
