@@ -53,7 +53,7 @@ namespace Library.Domain.Services
 
         public IEnumerable<Publisher> GetPublishersByCity(string city) 
         {
-            return _publisherRepository.ReadByCity(city);
+            return _publisherRepository.ReadByCityDapper(city);
         }
     }
 }

@@ -20,7 +20,6 @@ namespace Library.Infra.DataAccess.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            //optionsBuilder.UseMySQL("server=18.229.29.219;port=3306;database=Library;user=libraryuser;password=G6Wu^X+T");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

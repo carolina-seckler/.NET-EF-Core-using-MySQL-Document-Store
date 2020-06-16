@@ -8,5 +8,6 @@ namespace Library.Domain.Interfaces.Repositories
     public interface IPublisherRepository : IRepository<int, Publisher>
     {
         IEnumerable<Publisher> ReadByCity(string city);
+        IEnumerable<Publisher> ReadByCityDapper(string city);
     }
 }
